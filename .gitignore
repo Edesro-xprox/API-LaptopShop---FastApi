@@ -24,7 +24,6 @@ dist/
 # Archivos de entorno (variables sensibles)
 # ==============================
 .env
-.env.*
 *.env
 
 # ==============================
