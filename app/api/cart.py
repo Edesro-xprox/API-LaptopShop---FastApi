@@ -16,6 +16,23 @@ async def api_base():
     return {"message": "LaptopShopper API base. Use /api/laptops to fetch data."}
 
 
+
+# --- Datos de ejemplo ---
+SAMPLE_LAPTOPS = [
+    {"iLaptopId": 1, "name": "Acer Aspire 5", "image": "laptop_01", "description": "Rendimiento equilibrado para tareas cotidianas y productividad.", "price": 750},
+    {"iLaptopId": 2, "name": "Dell Inspiron 14", "image": "laptop_02", "description": "Diseño compacto con buena autonomía ideal para estudiantes.", "price": 820},
+    {"iLaptopId": 3, "name": "HP Pavilion X360", "image": "laptop_03", "description": "Convertible 2 en 1 con pantalla táctil y excelente versatilidad.", "price": 890},
+    {"iLaptopId": 4, "name": "Lenovo IdeaPad 5", "image": "laptop_04", "description": "Ligera y potente, ideal para multitarea y uso prolongado.", "price": 910},
+    {"iLaptopId": 5, "name": "Asus VivoBook S15", "image": "laptop_05", "description": "Pantalla amplia y colores vibrantes para una experiencia multimedia.", "price": 950},
+    {"iLaptopId": 6, "name": "MacBook Air M1", "image": "laptop_06", "description": "Eficiencia sobresaliente y rendimiento silencioso con chip Apple.", "price": 1200},
+    {"iLaptopId": 7, "name": "MacBook Pro M2", "image": "laptop_07", "description": "Potencia profesional con excelente duración de batería.", "price": 1800},
+    {"iLaptopId": 8, "name": "MSI Modern 14", "image": "laptop_08", "description": "Ideal para productividad y diseño liviano con buen rendimiento.", "price": 1050},
+    {"iLaptopId": 9, "name": "Razer Blade 15", "image": "laptop_09", "description": "Laptop gamer premium con construcción sólida y gráficos potentes.", "price": 2200},
+    {"iLaptopId": 10, "name": "Acer Nitro 5", "image": "laptop_10", "description": "Perfecta para gaming casual y tareas pesadas a buen precio.", "price": 1100},
+    {"iLaptopId": 11, "name": "ASUS TUF Gaming F15", "image": "laptop_11", "description": "Diseñada para rendimiento exigente y durabilidad extrema.", "price": 1300},
+    {"iLaptopId": 12, "name": "Samsung Galaxy Book Pro", "image": "laptop_12", "description": "Ultraliviana y eficiente, perfecta para movilidad y productividad.", "price": 1400}
+]
+
 @router.get("/laptops", response_model=List[LaptopType], tags=["laptops"])
 async def get_laptops():
     # Intenta obtener desde la base de datos; si falla, retorna datos de ejemplo.
@@ -32,7 +49,8 @@ async def get_laptops():
         if db:
             db.close()
 
-    # return SAMPLE_LAPTOPS
+    # Devuelve datos de ejemplo si no hay conexión o no hay datos
+    return SAMPLE_LAPTOPS
 
 @router.get("/cart", tags=["cart"])
 async def get_cart():
