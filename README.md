@@ -5,7 +5,7 @@ API backend para gestión de laptops usando FastAPI y SQLAlchemy.
 
 ## Requisitos
 - Python 3.10+
-- SQL Server y ODBC Driver 17+ (solo si usas base de datos)
+- SQL Server y ODBC Driver 17+
 
 ## Instalación rápida
 1. Crea y activa un entorno virtual:
@@ -17,7 +17,7 @@ API backend para gestión de laptops usando FastAPI y SQLAlchemy.
 	```bash
 	pip install -r requirements.txt
 	```
-3. Copia `.env.example` a `.env` y configura la cadena de conexión si usarás SQL Server.
+3. Copia `.env.example` a `.env` y configura la cadena de conexión para SQL Server.
 
 ## Uso
 Inicia el servidor de desarrollo:
@@ -33,9 +33,8 @@ uvicorn app.main:app --reload --port 8000
 - `DELETE /api/laptops` : Eliminar todos
 
 ## Notas
-- Si la base de datos no está configurada, se usan datos de ejemplo.
+- Si la base de datos no está configurada, se usan datos de ejemplo pero solo se podrá realizar peticiones tipo GET.
 - El modelo y la sesión SQLAlchemy están en `app/models/laptop.py` y `app/db/session.py`.
 
 ---
 Proyecto minimalista, ideal para aprender FastAPI y SQLAlchemy.
-
