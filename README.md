@@ -1,40 +1,36 @@
+# Proyecto
 
-# LaptopShopper API
+LAPTOPSHOPPER_API
 
-API backend para gestión de laptops usando FastAPI y SQLAlchemy.
+# Descripción
+
+Proyecto backend realizado con el framework FastApi para atender las peticiones del usuario.
 
 ## Requisitos
-- Python 3.10+
+- Python 3.14+
 - SQL Server y ODBC Driver 17+
+- Entorno virtual (venv)
 
-## Instalación rápida
-1. Crea y activa un entorno virtual:
-	```bash
-	python -m venv .venv
-	.venv\Scripts\activate
-	```
-2. Instala dependencias:
-	```bash
-	pip install -r requirements.txt
-	```
-3. Copia `.env.example` a `.env` y configura la cadena de conexión para SQL Server.
+## Tecnología / versión
 
-## Uso
-Inicia el servidor de desarrollo:
-```bash
-uvicorn app.main:app --reload --port 8000
-```
+- FastAPI 0.128.2
+- Uvicorn 0.40.0
+- SQLAlchemy 2.0.46
+- pyodbc 5.3.0
+- python-dotenv 1.2.1
+- pydantic 2.12.5
+- pydantic-settings 2.12.0
 
-## Endpoints principales
-- `GET /api/laptops` : Lista de laptops (de ejemplo o desde base de datos)
-- `POST /api/laptops` : Crear laptop
-- `PUT /api/laptops/{laptop_id}/{quantity}` : Actualizar cantidad
-- `DELETE /api/laptops/{laptop_id}` : Eliminar por id
-- `DELETE /api/laptops` : Eliminar todos
+## Como ejecutar
+- Crea un entorno virtual: python -m venv .venv
+- Activa el entorno virtual: .venv\Scripts\activate
+- Instala dependencias: pip install -r requirements.txt
+- Copia `.env.example` a `.env` y configura la cadena de conexión para SQL Server.
+- Inicia el servidor de desarrollo: uvicorn app.main:app --reload --port 8000
 
 ## Notas
 - Si la base de datos no está configurada, se usan datos de ejemplo pero solo se podrá realizar peticiones tipo GET.
-- El modelo y la sesión SQLAlchemy están en `app/models/laptop.py` y `app/db/session.py`.
 
----
-Proyecto minimalista, ideal para aprender FastAPI y SQLAlchemy.
+## Autor
+
+Edson Espinoza
